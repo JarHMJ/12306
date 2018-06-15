@@ -11,15 +11,21 @@ DATE = '2018-06-18'
 TO_STATION = 'AOH'
 FROM_STATION = 'WHN'
 
+
 # ssl._create_default_https_context = ssl._create_unverified_context
 
 def getlist(train_date, from_station, to_station):
     # req = urllib.request.Request(
     #     'https://kyfw.12306.cn/otn/leftTicket/queryO?leftTicketDTO.train_date=%s&leftTicketDTO.from_station=%s&leftTicketDTO.to_station=%s&purpose_codes=ADULT' % (
     #         train_date, from_station, to_station))
-    req = requests.get(
-        'https://kyfw.12306.cn/otn/leftTicket/queryO?leftTicketDTO.train_date=%s&leftTicketDTO.from_station=%s&leftTicketDTO.to_station=%s&purpose_codes=ADULT' % (
-            train_date, from_station, to_station))
+    # url = 'https://kyfw.12306.cn/otn/leftTicket/query'
+    url = 'https://www.baidu.com'
+    params = {'leftTicketDTO.train_date': '2018-06-15',
+              'leftTicketDTO.from_station': 'SHH',
+              'leftTicketDTO.to_station': 'BJP',
+              'purpose_codes': 'ADULT', }
+    headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36'}
+    req = requests.get(url=url, headers=headers)
     # req.add_header('User-Agent',
     #                'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36')
     # html = urllib.request.urlopen(req).read()
